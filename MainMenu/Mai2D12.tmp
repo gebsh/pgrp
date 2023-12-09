@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://busojceibi6k8"]
+[gd_scene load_steps=3 format=3 uid="uid://busojceibi6k8"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenuScene.gd" id="1_5tdw6"]
 [ext_resource type="Script" path="res://MainMenu/QuitButton.gd" id="2_amene"]
-[ext_resource type="Script" path="res://MainMenu/PlayButton.gd" id="2_w26jh"]
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_5tdw6")
@@ -20,14 +19,13 @@ offset_right = 384.0
 offset_bottom = 194.0
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayButton" type="Button" parent="Panel"]
+[node name="Button2" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 124.0
 offset_right = 384.0
 offset_bottom = 155.0
 text = "Grać"
-script = ExtResource("2_w26jh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button3" type="Button" parent="Panel"]
@@ -49,6 +47,5 @@ text = "Wyjście"
 script = ExtResource("2_amene")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="Panel/QuitButton" method="_on_pressed"]
