@@ -8,11 +8,15 @@
 script = ExtResource("1_5tdw6")
 
 [node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
 offset_right = 640.0
 offset_bottom = 360.0
-metadata/_edit_use_anchors_ = true
+color = Color(1, 0.443137, 0.329412, 1)
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Button" type="Button" parent="Panel/ColorRect"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 164.0
@@ -20,7 +24,7 @@ offset_right = 384.0
 offset_bottom = 194.0
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayButton" type="Button" parent="Panel"]
+[node name="PlayButton" type="Button" parent="Panel/ColorRect"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 124.0
@@ -30,7 +34,7 @@ text = "Grać"
 script = ExtResource("2_w26jh")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button3" type="Button" parent="Panel"]
+[node name="Button3" type="Button" parent="Panel/ColorRect"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 204.0
@@ -39,7 +43,7 @@ offset_bottom = 235.0
 text = "Opcje"
 metadata/_edit_use_anchors_ = true
 
-[node name="QuitButton" type="Button" parent="Panel"]
+[node name="QuitButton" type="Button" parent="Panel/ColorRect"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 243.0
@@ -49,6 +53,6 @@ text = "Wyjście"
 script = ExtResource("2_amene")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_pressed"]
-[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Panel/QuitButton" to="Panel/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/ColorRect/PlayButton" to="Panel/ColorRect/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/ColorRect/QuitButton" to="Panel/ColorRect/QuitButton" method="_on_pressed"]
