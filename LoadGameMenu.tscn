@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://crgecianj0xas"]
+
+[ext_resource type="PackedScene" uid="uid://flpj3gvj6u6v" path="res://MenuMargins.tscn" id="1_einid"]
+[ext_resource type="Script" path="res://LoadGameMenu.gd" id="1_tlooe"]
+[ext_resource type="PackedScene" uid="uid://dvu5bggunrv4n" path="res://SavedGames.tscn" id="2_nsqw0"]
+
+[node name="LoadGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tlooe")
+
+[node name="MenuMargins" parent="." instance=ExtResource("1_einid")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuMargins"]
+layout_mode = 2
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 576.0
+offset_bottom = 312.0
+theme_override_constants/separation = 8
+
+[node name="SavedGames" parent="MenuMargins/VBoxContainer" instance=ExtResource("2_nsqw0")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuMargins/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MenuMargins/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Powrót"
+
+[node name="LoadButton" type="Button" parent="MenuMargins/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wczytaj"
+
+[connection signal="save_chosen" from="MenuMargins/VBoxContainer/SavedGames" to="." method="_on_saved_games_save_chosen"]
+[connection signal="save_selected" from="MenuMargins/VBoxContainer/SavedGames" to="." method="_on_saved_games_save_selected"]
+[connection signal="pressed" from="MenuMargins/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MenuMargins/VBoxContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
