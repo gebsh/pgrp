@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6i2seb8iksg5"]
+
+[ext_resource type="Script" path="res://MainMenu/PlayButton.gd" id="1_na73y"]
+[ext_resource type="Script" path="res://InGameMenu/InGameMenu.gd" id="1_uq44o"]
+[ext_resource type="Script" path="res://MainMenu/QuitButton.gd" id="2_e5vj5"]
+
+[node name="InGameMenu" type="Node2D"]
+script = ExtResource("1_uq44o")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="Panel"]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(1, 0.443137, 0.329412, 1)
+
+[node name="PlayButton" type="Button" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 124.0
+offset_right = 384.0
+offset_bottom = 155.0
+text = "Wrócić do gry
+"
+script = ExtResource("1_na73y")
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton" type="Button" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 164.0
+offset_right = 384.0
+offset_bottom = 194.0
+text = "Opcje"
+metadata/_edit_use_anchors_ = true
+
+[node name="menuButton" type="Button" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 204.0
+offset_right = 384.0
+offset_bottom = 235.0
+text = "Menu główne"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 243.0
+offset_right = 384.0
+offset_bottom = 274.0
+text = "Wyjście z gry"
+script = ExtResource("2_e5vj5")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Background/PlayButton" to="Panel/Background/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Background/QuitButton" to="Panel/Background/QuitButton" method="_on_pressed"]

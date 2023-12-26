@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs7mn5t8ivwom"]
+
+[ext_resource type="Script" path="res://OptionsMenu/Pelny_ekran_przycisk.gd" id="1_46bn6"]
+[ext_resource type="Script" path="res://OptionsMenu/ustawienia.gd" id="1_rxdsw"]
+[ext_resource type="AudioStream" uid="uid://c1beorcxsd8ho" path="res://OptionsMenu/music_game.mp3" id="3_sc073"]
+
+[node name="Ustawienia" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxdsw")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="Dźwięk" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Dźwięk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Dźwięk/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Głośność muzyki2" type="Label" parent="TabContainer/Dźwięk/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Głośność muzyki"
+horizontal_alignment = 1
+
+[node name="Głośność muzyki" type="HSlider" parent="TabContainer/Dźwięk/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Obraz" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Obraz"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Obraz/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Obraz/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pełny ekran"
+script = ExtResource("1_46bn6")
+
+[node name="Sterowanie" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sterowanie"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sterowanie/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Sterowanie/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Głośność"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sc073")
+autoplay = true
+
+[node name="Fx" type="AudioStreamPlayer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 549.0
+offset_top = 637.0
+offset_right = 717.0
+offset_bottom = 696.0
+text = "Cofnij"
+
+[connection signal="value_changed" from="TabContainer/Dźwięk/MarginContainer/VBoxContainer/Głośność muzyki" to="." method="_on_głośność_muzyki_value_changed"]
+[connection signal="toggled" from="TabContainer/Obraz/MarginContainer/VBoxContainer/CheckButton" to="TabContainer/Obraz/MarginContainer/VBoxContainer/CheckButton" method="_on_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
