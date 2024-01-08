@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvu5bggunrv4n"]
 
-[ext_resource type="Script" path="res://SavedGames.gd" id="1_cljld"]
+[ext_resource type="Script" path="res://menus/SavedGames.gd" id="1_cljld"]
 
 [node name="SavedGames" type="Control"]
 layout_mode = 3

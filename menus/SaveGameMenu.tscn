@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wcr3tl83nxan"]
 
-[ext_resource type="PackedScene" uid="uid://dvu5bggunrv4n" path="res://SavedGames.tscn" id="1_q6bj5"]
+[ext_resource type="PackedScene" uid="uid://dvu5bggunrv4n" path="res://menus/SavedGames.tscn" id="1_q6bj5"]
 
 [node name="SaveGameMenu" type="Control"]
 layout_mode = 3
