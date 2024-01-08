@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://wd1nmgiylenh"]
+
+[ext_resource type="PackedScene" uid="uid://bo53roofyw42m" path="res://menus/MainMenu.tscn" id="1_ew6te"]
+[ext_resource type="Script" path="res://Main.gd" id="1_k5vjf"]
+[ext_resource type="PackedScene" uid="uid://crgecianj0xas" path="res://menus/LoadGameMenu.tscn" id="2_m4ubp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k5vjf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.215686, 0.352941, 1)
+
+[node name="MainMenu" parent="." instance=ExtResource("1_ew6te")]
+
+[node name="LoadGameMenu" parent="." instance=ExtResource("2_m4ubp")]
+visible = false
+
+[connection signal="scene_change_requested" from="MainMenu" to="." method="_on_main_menu_scene_change_requested"]
+[connection signal="back_button_pressed" from="LoadGameMenu" to="." method="_on_load_game_menu_back_button_pressed"]
