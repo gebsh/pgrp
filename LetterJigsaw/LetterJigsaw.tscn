@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://p34cuecp3c8f"]
+
+[ext_resource type="Script" path="res://LetterJigsaw/LetterJigsaw.gd" id="1_yb6xg"]
+
+[node name="LetterJigsaw" type="Node"]
+script = ExtResource("1_yb6xg")
+
+[node name="PendingTilesScroll" type="ScrollContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 160.0
+offset_bottom = 232.0
+grow_horizontal = 2
+
+[node name="PendingTiles" type="HBoxContainer" parent="PendingTilesScroll"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="PlacedTilesScroll" type="ScrollContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlacedTiles" type="HBoxContainer" parent="PlacedTilesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+alignment = 1
